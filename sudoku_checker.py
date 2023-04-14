@@ -1,4 +1,7 @@
 # https://leetcode.com/problems/valid-sudoku/
-class Solution:
-    def isValidSudoku(self, board: List[List[str]]) -> bool:
-        pass
+class Solution(object):
+    def isValidSudoku(self, board):
+        """
+        :type board: List[List[str]]
+        :rtype: bool
+        """
