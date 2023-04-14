@@ -6,6 +6,21 @@ from sudoku_checker import Solution
 def solution():
     return Solution()
 
+@pytest.mark.parametrize("valid_regions", [\
+        ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+        [".", "2", ".", "4", "5", "6", "7", "8", "9"],
+        [".", ".", ".", ".", ".", ".", ".", ".", "."],
+    ])
+def test_valid_regions(solution, valid_regions):
+    assert solution.isValidRegion(valid_regions) == True
+
+@pytest.mark.parametrize("invalid_regions", [\
+        ["9", "2", "3", "4", "5", "6", "7", "8", "9"],
+        [".", "2", ".", "4", "5", "6", "7", "8", "10"],
+    ])
+def test_invalid_regions(solution, invalid_regions):
+    assert solution.isValidRegion(invalid_regions) == False
+
 # Test valid sudoku board
 def test_valid_sudoku(solution):
     board = \
