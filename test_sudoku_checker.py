@@ -2,8 +2,12 @@ import pytest
 
 from sudoku_checker import Solution
 
+@pytest.fixture()
+def solution():
+    return Solution()
+
 # Test valid sudoku board
-def test_valid_sudoku():
+def test_valid_sudoku(solution):
     board = \
         [["5","3",".",".","7",".",".",".","."]
         ,["6",".",".","1","9","5",".",".","."]
@@ -14,10 +18,10 @@ def test_valid_sudoku():
         ,[".","6",".",".",".",".","2","8","."]
         ,[".",".",".","4","1","9",".",".","5"]
         ,[".",".",".",".","8",".",".","7","9"]]
-    assert Solution.isValidSudoku(board) == True
+    assert solution.isValidSudoku(board) == True
 
 # Test invalid sudoku board
-def test_invalid_sudoku():
+def test_invalid_sudoku(solution):
     board = \
         [["8","3",".",".","7",".",".",".","."]
         ,["6",".",".","1","9","5",".",".","."]
@@ -28,5 +32,5 @@ def test_invalid_sudoku():
         ,[".","6",".",".",".",".","2","8","."]
         ,[".",".",".","4","1","9",".",".","5"]
         ,[".",".",".",".","8",".",".","7","9"]]
-    assert Solution.isValidSudoku(board) == False
+    assert solution.isValidSudoku(board) == False
 
