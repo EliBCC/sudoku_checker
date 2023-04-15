@@ -31,6 +31,8 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: List[List[str]]
         """
+
+        return board
     
     def getCols(self, board):
         """
