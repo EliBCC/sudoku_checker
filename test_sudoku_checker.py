@@ -48,6 +48,48 @@ def test_valid_regions(solution, valid_regions):
 def test_invalid_regions(solution, invalid_regions):
     assert solution.isValidRegion(invalid_regions) == False
 
+def test_get_rows(solution, valid_board):
+    ans = \
+        [["5","3",".",".","7",".",".",".","."]
+        ,["6",".",".","1","9","5",".",".","."]
+        ,[".","9","8",".",".",".",".","6","."]
+        ,["8",".",".",".","6",".",".",".","3"]
+        ,["4",".",".","8",".","3",".",".","1"]
+        ,["7",".",".",".","2",".",".",".","6"]
+        ,[".","6",".",".",".",".","2","8","."]
+        ,[".",".",".","4","1","9",".",".","5"]
+        ,[".",".",".",".","8",".",".","7","9"]]
+    
+    assert solution.getRows(valid_board) == ans
+
+def test_get_cols(solution, valid_board):
+    ans = \
+        [['5', '6', '.', '8', '4', '7', '.', '.', '.'], 
+        ['3', '.', '9', '.', '.', '.', '6', '.', '.'], 
+        ['.', '.', '8', '.', '.', '.', '.', '.', '.'], 
+        ['.', '1', '.', '.', '8', '.', '.', '4', '.'], 
+        ['7', '9', '.', '6', '.', '2', '.', '1', '8'], 
+        ['.', '5', '.', '.', '3', '.', '.', '9', '.'], 
+        ['.', '.', '.', '.', '.', '.', '2', '.', '.'], 
+        ['.', '.', '6', '.', '.', '.', '8', '.', '7'], 
+        ['.', '.', '.', '3', '1', '6', '.', '5', '9']]
+    
+    assert solution.getCols(valid_board) == ans
+
+def test_get_sub_boxes(solution, valid_board):
+    ans = \
+        [['5','3','.','6','.','.','.','9','8'], 
+        ['.','7','.','1','9','5','.','.','.'], 
+        ['.','.','.','.','.','.','.','6','.'], 
+        ['8','.','.','4','.','.','7','.','.'], 
+        ['.','6','.','8','.','3','.','2','.'], 
+        ['.','.','3','.','.','1','.','.','6'], 
+        ['.','6','.','.','.','.','.','.','.'], 
+        ['.','.','.','4','1','9','.','8','.'], 
+        ['2','8','.','.','.','5','.','7','9']]
+    
+    assert solution.getSubBoxes(valid_board) == ans
+
 # Test valid sudoku board
 def test_valid_sudoku(solution, valid_board):
     assert solution.isValidSudoku(valid_board) == True
@@ -55,4 +97,3 @@ def test_valid_sudoku(solution, valid_board):
 # Test invalid sudoku board
 def test_invalid_sudoku(solution, invalid_board):
     assert solution.isValidSudoku(invalid_board) == False
-
