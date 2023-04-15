@@ -77,7 +77,7 @@ class Solution(object):
         
         cols = self.getCols(board)
         for col in cols:
-            if not self.isValidRegion(row):
+            if not self.isValidRegion(col):
                 return False
         
         subBoxes = self.getSubBoxes(board)
