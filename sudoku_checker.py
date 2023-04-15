@@ -14,7 +14,16 @@ class Solution(object):
         :type region: List[str]
         :rtype: bool
         """
-        return False
+        region = [num for num in region if num != '.']
+        unique_region = set(region)
+        if(len(region) != len(unique_region)):
+            return False
+        
+        for num in region:
+            if not 0 < int(num) < 10:
+                return False
+
+        return True
     
     def getRows(self, board):
         """
@@ -42,4 +51,3 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: bool
         """
-        
