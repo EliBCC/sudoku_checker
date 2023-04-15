@@ -69,3 +69,20 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: bool
         """
+
+        rows = self.getRows(board)
+        for row in rows:
+            if not self.isValidRegion(row):
+                return False
+        
+        cols = self.getCols(board)
+        for col in cols:
+            if not self.isValidRegion(row):
+                return False
+        
+        subBoxes = self.getSubBoxes(board)
+        for subBox in subBoxes:
+            if not self.isValidRegion(subBox):
+                return False
+        
+        return True
